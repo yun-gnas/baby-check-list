@@ -10,7 +10,7 @@
 .top-actions{flex-wrap:nowrap;justify-content:flex-end}.top-actions .settings-btn{white-space:nowrap;flex:0 0 auto}
 .settings .add-panel{margin-top:15px;background:#fafcf9}.settings .setting-line{align-items:center}
 .settings .setting-line .settings-btn{flex-shrink:0}
-@media(max-width:400px){.title-row h1{font-size:22px}.instagram-link{width:39px;height:39px}}
+@media(max-width:400px){.title-row h1{font-size:23px}.instagram-link{width:39px;height:39px}}
 
 /* v11 layout */
 .header-shell{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;margin-bottom:14px}
@@ -22,7 +22,7 @@
 .summary-card .track{margin-top:9px}.section-head h2{font-size:20px}.section-head span{font-size:12px}
 .rename-tile{display:none;position:absolute;top:4px;left:4px;border:0;border-radius:7px;background:#eef1f7;color:#3c5270;font-weight:800;font-size:11px;padding:5px 6px;z-index:2}
 .editing .rename-tile{display:block}
-@media(max-width:400px){.header-shell .title-row h1{font-size:22px}.summary-card .label{font-size:18px}}
+@media(max-width:400px){.header-shell .title-row h1{font-size:23px}.summary-card .label{font-size:18px}}
 /* inline category progress and aligned header buttons */
 .section-head{align-items:center;margin:0 2px 7px}.section-head h2{font-size:22px;font-weight:850}.section-status{font-size:21px;font-weight:850;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink)}
 .section>.track{height:6px;background:#e8ece8;border-radius:99px;overflow:hidden;margin-bottom:12px}
@@ -41,8 +41,30 @@
   }
   body:not(.editing) .tiles .tile .qty-tools { margin-top: 2px; }
 }
+/* v17: 인스타그램과 설정 버튼을 가로 한 줄로 배치 */
+.header-controls{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  padding-top:1px;
+}
+.header-controls .instagram-link{
+  width:48px!important;
+  min-width:48px;
+  height:41px!important;
+  flex:0 0 48px;
+}
+.header-controls .settings-btn{
+  width:76px;
+  min-width:76px;
+  height:41px;
+  flex:0 0 76px;
+  white-space:nowrap;
+}
 </style></head><body><main>
-<div class="header-shell"><div class="header-copy"><div class="eyebrow">TEO's MOM OUTING CHECKLIST</div><div class="title-row"><h1>태오맘의 기저귀 가방 체크리스트</h1></div></div><div class="header-controls"><a id="instagram-link" class="instagram-link" href="https://www.instagram.com/jh__lee__?igsh=cHo3NzQ2dHN5dWNu" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 프로필 열기" title="인스타그램 프로필"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><button class="settings-btn" id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">⚙ 설정</button></div><p class="subtitle">항목을 탭하여 체크 / 길게 누르거나, 설정 버튼을 통해 편집 가능. <br>페이지를 새로 열면 초기화되고, 개인별 항목 설정은 유지.</p></div>
+<div class="header-shell"><div class="header-copy"><div class="eyebrow">TEO's MOM OUTING CHECKLIST</div><div class="title-row"><h1>태오맘의 <br>기저귀 가방 체크리스트</h1></div></div><div class="header-controls"><a id="instagram-link" class="instagram-link" href="https://www.instagram.com/jh__lee__?igsh=cHo3NzQ2dHN5dWNu" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 프로필 열기" title="인스타그램 프로필"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><button class="settings-btn" id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">⚙ 설정</button></div><p class="subtitle">항목을 탭하여 체크 / 길게 누르거나, 설정 버튼을 통해 편집 가능. <br>페이지를 새로 열면 초기화되고, 개인별 항목 설정은 유지.</p></div>
 <div class="settings" id="settings" hidden><div class="setting-line"><strong>항목 편집 설정</strong><button type="button" class="settings-btn" id="edit-done">완료</button></div><p>타일을 끌어서 순서를 바꾸거나 ×로 삭제하세요. 이름 버튼으로 물품명을 바꾸고, 각 타일의 수량 ON/OFF도 설정할 수 있습니다. + 버튼으로 항목을 추가할 수 있습니다.</p><div class="font-setting"><div class="setting-line"><label for="tile-font-range"><strong>항목 글자 크기</strong></label><output id="tile-font-value" for="tile-font-range">14px</output></div><input type="range" id="tile-font-range" min="12" max="26" step="1" value="14" aria-label="항목 글자 크기"><div class="font-range-labels"><span>작게 (12px)</span><button type="button" id="font-reset">기본 크기</button><span>크게 (26px)</span></div><p>항목 이름의 글자 크기를 조절합니다. 변경 내용은 이 브라우저에 저장됩니다.</p></div><section class="add-panel" id="add-panel"><h2>＋ 나만의 항목 추가</h2><p>추가한 항목과 배열 순서는 같은 브라우저에서 유지됩니다.</p><form class="add-form" id="add-form"><input id="new-name" maxlength="40" placeholder="추가할 물품 이름" aria-label="추가할 물품 이름" required><select id="new-category" aria-label="항목 분류"><option value="required">필수</option><option value="optional" selected>선택</option></select><button type="submit">추가</button></form><button class="restore" id="restore" type="button">삭제한 기본 항목 복원</button></section></div>
 <section class="section"><div class="section-head"><h2>필수항목</h2><div class="section-status"><span id="required-count">0</span><span> / </span><span id="required-total">9</span></div></div><div class="track"><div class="bar" id="required-bar"></div></div><div class="tiles" id="required-list"><div class="tile" data-fallback="true"><span class="tile-name">기저귀</span></div><div class="tile" data-fallback="true"><span class="tile-name">물티슈</span></div><div class="tile" data-fallback="true"><span class="tile-name">손수건(거즈)</span></div><div class="tile" data-fallback="true"><span class="tile-name">손수건(엠보)</span></div><div class="tile" data-fallback="true"><span class="tile-name">보온병</span></div><div class="tile" data-fallback="true"><span class="tile-name">젖병</span></div><div class="tile" data-fallback="true"><span class="tile-name">분유</span></div><div class="tile" data-fallback="true"><span class="tile-name">쪽쪽이</span></div><div class="tile" data-fallback="true"><span class="tile-name">쪽쪽이 클립</span></div></div></section>
 <section class="section"><div class="section-head"><h2>선택항목</h2><div class="section-status"><span id="optional-count">0</span><span> / </span><span id="optional-total">8</span></div></div><div class="track"><div class="bar" id="optional-bar"></div></div><div class="tiles" id="optional-list"><div class="tile" data-fallback="true"><span class="tile-name">블랭킷</span></div><div class="tile" data-fallback="true"><span class="tile-name">건티슈</span></div><div class="tile" data-fallback="true"><span class="tile-name">기저귀매트</span></div><div class="tile" data-fallback="true"><span class="tile-name">기저귀패드</span></div><div class="tile" data-fallback="true"><span class="tile-name">여벌옷</span></div><div class="tile" data-fallback="true"><span class="tile-name">장난감</span></div><div class="tile" data-fallback="true"><span class="tile-name">아기띠</span></div><div class="tile" data-fallback="true"><span class="tile-name">식염수 &amp; 로션 &amp; 면봉</span></div></div></section>
