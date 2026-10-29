@@ -56,6 +56,18 @@
   height: 41px !important;
   min-width: 76px;
 }
+/* v19: 버튼 높이가 제목과 설명 사이의 간격을 늘리지 않도록 분리 */
+.header-shell { position: relative; display: block; margin-bottom: 14px; }
+.header-shell .header-copy { padding-right: 86px; }
+.header-shell .header-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 20px;
+  width: 76px;
+  z-index: 1;
+}
+.header-shell .subtitle { margin-top: 6px; margin-bottom: 0; }
 </style></head><body><main>
 <div class="header-shell"><div class="header-copy"><div class="eyebrow">TEO's MOM OUTING CHECKLIST</div><div class="title-row"><h1>태오맘의 기저귀 가방 체크리스트</h1></div></div><div class="header-controls"><a id="instagram-link" class="instagram-link" href="https://www.instagram.com/jh__lee__?igsh=cHo3NzQ2dHN5dWNu" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 프로필 열기" title="인스타그램 프로필"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><button class="settings-btn" id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">⚙ 설정</button></div><p class="subtitle">항목을 탭하여 체크 / 길게 누르거나, 설정 버튼을 통해 편집 가능. <br>페이지를 새로 열면 초기화되고, 개인별 항목 설정은 유지.</p></div>
 <div class="settings" id="settings" hidden><div class="setting-line"><strong>항목 편집 설정</strong><button type="button" class="settings-btn" id="edit-done">완료</button></div><p>타일을 끌어서 순서를 바꾸거나 ×로 삭제하세요. 이름 버튼으로 물품명을 바꾸고, 각 타일의 수량 ON/OFF도 설정할 수 있습니다. + 버튼으로 항목을 추가할 수 있습니다.</p><div class="font-setting"><div class="setting-line"><label for="tile-font-range"><strong>항목 글자 크기</strong></label><output id="tile-font-value" for="tile-font-range">14px</output></div><input type="range" id="tile-font-range" min="12" max="26" step="1" value="14" aria-label="항목 글자 크기"><div class="font-range-labels"><span>작게 (12px)</span><button type="button" id="font-reset">기본 크기</button><span>크게 (26px)</span></div><p>항목 이름의 글자 크기를 조절합니다. 변경 내용은 이 브라우저에 저장됩니다.</p></div><section class="add-panel" id="add-panel"><h2>＋ 나만의 항목 추가</h2><p>추가한 항목과 배열 순서는 같은 브라우저에서 유지됩니다.</p><form class="add-form" id="add-form"><input id="new-name" maxlength="40" placeholder="추가할 물품 이름" aria-label="추가할 물품 이름" required><select id="new-category" aria-label="항목 분류"><option value="required">필수</option><option value="optional" selected>선택</option></select><button type="submit">추가</button></form><button class="restore" id="restore" type="button">삭제한 기본 항목 복원</button></section></div>
